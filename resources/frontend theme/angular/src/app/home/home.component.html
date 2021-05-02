@@ -1,0 +1,202 @@
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="layer">
+        <div class="home-banner"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="section-search">
+                        <h3>World's Largest <span>Marketplace</span></h3>
+                        <p>Search From 150 Awesome Verified Ads!</p>
+                        <div class="search-box">
+                            <form> 
+                                <div class="search-input line">
+                                    <i class="fas fa-tv bficon"></i>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form-control" placeholder="What are you looking for?">
+                                    </div>
+                                </div>
+                                <div class="search-input">
+                                    <i class="fas fa-location-arrow bficon"></i>
+                                    <div class="form-group mb-0">
+                                        <input type="text" class="form-control" placeholder="Your Location"> 
+                                        <a class="current-loc-icon current_location" href="javascript:void(0);"><i class="fas fa-crosshairs"></i></a>
+                                    </div>
+                                </div>
+                                <div class="search-btn">
+                                    <button class="btn search_service" type="submit">Search</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="search-cat">
+                            <i class="fas fa-circle"></i>
+                            <span>Popular Searches</span>
+                            <a [routerLink]="'/pages/search'">Electrical  Works</a>
+                            <a [routerLink]="'/pages/search'">Cleaning</a>
+                            <a [routerLink]="'/pages/search'">AC Repair</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Hero Section -->
+<!-- Category Section -->
+<section class="category-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="heading">
+                            <h2>Featured Categories</h2>
+                            <span>What do you need to find?</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="viewall">
+                            <h4><a [routerLink]="'/categories'">View All <i class="fas fa-angle-right"></i></a></h4>
+                            <span>Featured Categories</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="catsec">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-6" *ngFor="let category of specialityList">
+                            <a [routerLink]="'/pages/search'">
+                                <div class="cate-widget">
+                                    <img src="{{category.img}}" alt="category">
+                                    <div class="cate-title">
+                                        <h3><span><i class="fas fa-circle"></i> {{category.speciality}}</span></h3>
+                                    </div>
+                                    <div class="cate-count">
+                                        <i class="fas fa-clone"></i> {{category.ratings}}
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Category Section -->
+
+<!-- Popular Servides -->
+<section class="popular-services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="heading">
+                            <h2>Most Popular Services</h2>
+                            <span>Explore the greates our services. You won’t be disappointed</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="viewall">
+                            <h4><a [routerLink]="'/categories'">View All <i class="fas fa-angle-right"></i></a></h4>
+                            <span>Most Popular</span>
+                        </div>
+                    </div>
+                </div>
+                <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                    <div ngxSlickItem *ngFor="let slide of slides" class="service-widget">
+                        <div class="service-img">
+                            <a [routerLink]="'/pages/service-details'">
+                                <img class="img-fluid serv-img" alt="Service Image" src="{{slide.service_img}}">
+                            </a>
+                            <div class="item-info">
+                                <div class="service-user">
+                                    <a href="javascript:void(0);">
+                                        <img src="{{slide.user_img}}" alt="">
+                                    </a>	
+                                    <span class="service-price">$25</span>
+                                </div>
+                                <div class="cate-list">
+                                    <a class="bg-yellow" [routerLink]="'/pages/service-details'">{{slide.name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-content">
+                            <h3 class="title">
+                                <a [routerLink]="'/pages/service-details'">{{slide.service_name}}</a>
+                            </h3>
+                            <div class="rating">	
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star filled"></i>
+                                <i class="fas fa-star"></i>		
+                                <span class="d-inline-block average-rating">(4.3)</span>
+                            </div>
+                            <div class="user-info">
+                                <div class="row">	
+                                    <span class="col-auto ser-contact"><i class="fas fa-phone mr-1"></i> 
+                                        <span>{{slide.mobile}}</span>
+                                    </span>
+                                    <span class="col ser-location">
+                                        <span>{{slide.country}}</span> <i class="fas fa-map-marker-alt ml-1"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ngx-slick-carousel>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /Popular Servides -->
+
+<!-- How It Works -->
+<section class="how-work">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="heading howitworks">
+                    <h2>How It Works</h2>
+                    <span>Aliquam lorem ante, dapibus in, viverra quis</span>
+                </div>
+                <div class="howworksec">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="howwork">
+                                <div class="iconround">
+                                    <div class="steps">01</div>
+                                    <img src="assets/img/icon-1.png" alt="">
+                                </div>
+                                <h3>Choose What To Do</h3>
+                                <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="howwork">
+                                <div class="iconround">
+                                    <div class="steps">02</div>
+                                    <img src="assets/img/icon-2.png" alt="">
+                                </div>
+                                <h3>Find What You Want</h3>
+                                <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="howwork">
+                                <div class="iconround">
+                                    <div class="steps">03</div>
+                                    <img src="assets/img/icon-3.png" alt="">
+                                </div>
+                                <h3>Amazing Places</h3>
+                                <p>Aliquam lorem ante, dapibus in, viverra quis, feugiat Phasellus viverra nulla ut metus varius laoreet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- /How It Works -->

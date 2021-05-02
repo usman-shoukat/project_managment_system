@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-xl-8 offset-xl-2">   
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="row">
+                <div class="col">
+                    <h3 class="page-title">Edit Sub Category</h3>
+                </div>
+            </div>
+        </div>
+        <!-- /Page Header -->     
+        <div class="card">
+            <div class="card-body">            
+                <!-- Form -->
+                <form>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Category</option>
+                            <option>Automobile</option>
+                            <option>Construction</option>
+                            <option>Interior</option>
+                            <option>Cleaning</option>
+                            <option>Electrical</option>
+                            <option>Carpentry</option>
+                            <option>Computer</option>
+                        </ng-select2>
+                    </div>
+                    <div class="form-group">
+                        <label>Subcategory Name</label>
+                        <input class="form-control" type="text" value="Bus Service">
+                    </div>
+                    <div class="form-group">
+                        <label>Category Image</label>
+                        <input class="form-control" type="file">
+                    </div>
+                    <div class="form-group">
+                        <div class="avatar">
+                            <img class="avatar-img rounded" alt="" src="assets/admin/img/sub-category/sub-category-01.jpg">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                        <a href="subcategories" class="btn btn-link">Cancel</a>
+                    </div>
+                </form>
+                <!-- /Form -->
+                
+            </div>
+        </div>
+    </div>
+</div>

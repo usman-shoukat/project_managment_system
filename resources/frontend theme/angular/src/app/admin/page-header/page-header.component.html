@@ -1,0 +1,197 @@
+<!-- Page Header -->
+<div class="page-header">
+    <div class="row">
+        <div class="col">
+            <h3 class="page-title">{{pageName | titlecase}}</h3>
+        </div>
+        <div class="col-auto text-right">
+            <a class="btn btn-white filter-btn" *ngIf="isFilter" href="javascript:void(0);" id="filter_search" (click)="bell()" [attr.aria-expanded]="!bellCollapsed" aria-controls="collapseExample1">
+                <i class="fas fa-filter"></i>
+            </a>
+            <a [routerLink]="'/admin/add-category'" *ngIf="isAdd && page === 'categories'" class="btn btn-primary add-button ml-3">
+                <i class="fas fa-plus"></i>
+            </a>
+            <a [routerLink]="'/admin/add-sub-category'" *ngIf="isAdd && page === 'sub-categories'" class="btn btn-primary add-button ml-3">
+                <i class="fas fa-plus"></i>
+            </a>
+            <a [routerLink]="'/admin/add-rating-type'" *ngIf="isAdd && page === 'rating-type'" class="btn btn-primary add-button ml-3">
+                <i class="fas fa-plus"></i>
+            </a>
+            <a [routerLink]="'/admin/add-subscription'" *ngIf="isAdd && page === 'subscriptions'" class="btn btn-primary add-button ml-3">
+                <i class="fas fa-plus"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /Page Header -->
+
+<!-- Search Filter -->
+<div class="card filter-card" id="filter_inputs" [ngbCollapse]="bellCollapsed">
+    <div class="card-body pb-0">
+        <form action="#" method="post">
+            <div class="row filter-row">
+                <div *ngIf="page === 'categories'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Category</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Category</option>
+                            <option>Automobile</option>
+                            <option>Construction</option>
+                            <option>Interior</option>
+                            <option>Cleaning</option>
+                            <option>Electrical</option>
+                            <option>Carpentry</option>
+                            <option>Computer</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'sub-categories'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Sub Category</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Sub Category</option>
+                            <option>Automobile</option>
+                            <option>Construction</option>
+                            <option>Interior</option>
+                            <option>Cleaning</option>
+                            <option>Electrical</option>
+                            <option>Carpentry</option>
+                            <option>Computer</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'services'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Service</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Service</option>
+                            <option>Automobile</option>
+                            <option>Car Wash</option>
+                            <option>Interior</option>
+                            <option>Cleaning</option>
+                            <option>Electrical</option>
+                            <option>Carpentry</option>
+                            <option>Computer</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'payments'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Provider</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Provider</option>
+                            <option>Thomas Herzberg</option>
+                            <option>Matthew Garcia</option>
+                            <option>Yolanda Potter</option>
+                            <option>Ricardo Flemings</option>
+                            <option>Maritza Wasson</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'payments'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Service</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Service</option>
+                            <option>Automobile</option>
+                            <option>Car Wash</option>
+                            <option>Interior</option>
+                            <option>Cleaning</option>
+                            <option>Electrical</option>
+                            <option>Carpentry</option>
+                            <option>Computer</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'ratings'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Type</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select type</option>
+                            <option>Good</option>
+                            <option>Very Good</option>
+                            <option>Poor</option>
+                            <option>Fair</option>
+                            <option>Excellent</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'ratings'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Status</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Status</option>
+                            <option>Pending</option>
+                            <option>Inprogress</option>
+                            <option>Completed (Provider)</option>
+                            <option>Accepted</option>
+                            <option>Rejected</option>
+                            <option>Cancelled (Provider)</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'wallet'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Name</option>
+                            <option>Thomas Herzberg</option>
+                            <option>Matthew Garcia</option>
+                            <option>Yolanda Potter</option>
+                            <option>Ricardo Flemings</option>
+                            <option>Maritza Wasson</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'service-providers'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Provider</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Provider</option>
+                            <option>Thomas Herzberg</option>
+                            <option>Matthew Garcia</option>
+                            <option>Yolanda Potter</option>
+                            <option>Ricardo Flemings</option>
+                            <option>Maritza Wasson</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div *ngIf="page === 'users'" class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <ng-select2 [data]="exampleData" width="100%">
+                            <option>Select Name</option>
+                            <option>Thomas Herzberg</option>
+                            <option>Matthew Garcia</option>
+                            <option>Yolanda Potter</option>
+                            <option>Ricardo Flemings</option>
+                            <option>Maritza Wasson</option>
+                        </ng-select2>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>From Date</label>
+                        <div class="cal-icon">
+                            <input class="form-control" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" type="text" >
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label>To Date</label>
+                        <div class="cal-icon">
+                            <input class="form-control" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <button class="btn btn-primary btn-block" type="button" (click)="closeFilter()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- /Search Filter -->

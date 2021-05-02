@@ -1,0 +1,58 @@
+<div class="mb-4">
+    <div class="d-sm-flex flex-row flex-wrap text-center text-sm-left align-items-center">
+        <img alt="profile image" src="assets/img/provider/provider-01.jpg" class="avatar-lg rounded-circle">
+        <div class="ml-sm-3 ml-md-0 ml-lg-3 mt-2 mt-sm-0 mt-md-2 mt-lg-0">
+            <h6 class="mb-0">Thomas Herzberg</h6>
+            <p class="text-muted mb-0">Member Since Apr 2020</p>
+        </div>
+    </div>
+</div>
+<div class="widget settings-menu">
+    <ul>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/dashboard'" [className]="page === 'dashboard'? 'nav-link active' : 'nav-link'">
+                <i class="fas fa-chart-line"></i> <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/services'" [className]="page === 'services'? 'nav-link active' : 'nav-link'">
+                <i class="far fa-address-book"></i> <span>My Services</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/booking-list'" [className]="page === 'booking-list'? 'nav-link active' : 'nav-link'">
+                <i class="far fa-calendar-check"></i> <span>Booking List</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/profile-settings'" [className]="page === 'profile-settings'? 'nav-link active' : 'nav-link'">
+                <i class="far fa-user"></i> <span>Profile Settings</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/wallet'" [className]="page === 'wallet'? 'nav-link active' : 'nav-link'">
+                <i class="far fa-money-bill-alt"></i> <span>Wallet</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/subscription'" [className]="page === 'subscription'? 'nav-link active' : 'nav-link'">
+                <i class="far fa-calendar-alt"></i> <span>Subscription</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/availability'" [className]="page === 'availability'? 'nav-link active' : 'nav-link'">
+                <i class="far fa-clock"></i> <span>Availability</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/reviews'" [className]="page === 'reviews'? 'nav-link active' : 'nav-link'">
+                <i class="far fa-star"></i> <span>Reviews</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a [routerLink]="'/providers/payment'" [className]="page === 'payment'? 'nav-link active' : 'nav-link'">
+                <i class="fas fa-hashtag"></i> <span>Payment</span>
+            </a>
+        </li>
+    </ul>
+</div>

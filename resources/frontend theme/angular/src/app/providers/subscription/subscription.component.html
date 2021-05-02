@@ -1,0 +1,75 @@
+<div class="row pricing-box">
+    <div [className]="plan.name === 'Enterprice'? 'col-xl-4 col-md-6 pricing-selected' : 'col-xl-4 col-md-6'" *ngFor="let plan of plans"  >
+        <div class="card">
+            <div class="card-body">
+                <div class="pricing-header">
+                    <h2>{{plan.name}}</h2>
+                    <p>Monthly Price</p>
+                </div>
+                <div class="pricing-card-price">
+                    <h3 class="heading2 price">${{plan.price}}</h3>
+                    <p>Duration: <span>{{plan.duration}} Months</span></p>
+                </div>
+                <ul class="pricing-options">
+                    <li><i class="far fa-check-circle"></i> One listing submission</li>
+                    <li><i class="far fa-check-circle"></i> {{plan.expiry}} days expiration</li>
+                </ul>
+                <a href="javascript:void(0);" class="btn btn-primary btn-block">Select Plan</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <div class="plan-det">
+            <h6 class="title">Plan Details</h6>
+            <ul class="row">
+                <li class="col-sm-4">
+                    <p><span class="text-muted">Started On</span> 15 Jul 2020</p>
+                </li>
+                <li class="col-sm-4">
+                    <p><span class="text-muted">Price</span> $1502.00</p>
+                </li>
+                <li class="col-sm-4">
+                    <p><span class="text-muted">Expired On</span> 15 Jul 2021</p>
+                </li>
+            </ul>
+            <h6 class="title">Last Payment</h6>
+            <ul class="row">
+                <li class="col-sm-4">
+                    <p>Paid at 15 Jul 2020</p>
+                </li>
+                <li class="col-sm-4">
+                    <p><span class="amount">$1502.00 </span>  <span class="badge bg-success-light">Paid</span></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h5 class="mb-4">Subscribed Details</h5>	
+<div class="card transaction-table mb-0">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-center mb-0 no-footer">
+                <thead>
+                    <tr>
+                        <th>Plan</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let plan of plans">
+                        <td>{{plan.name}}</td>
+                        <td>{{plan.start_date}}</td>
+                        <td>{{plan.end_date}}</td>
+                        <td>{{plan.price}}</td>
+                        <td><span class="badge bg-success-light">{{plan.status}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

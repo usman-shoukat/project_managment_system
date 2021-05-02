@@ -1,0 +1,15 @@
+<div *ngIf="adminShow">
+    <app-header></app-header>
+    <app-sidemenu></app-sidemenu>
+    <div class="page-wrapper">
+        <div class="content container-fluid">	
+            <app-page-header [hidden]="!filterShow"></app-page-header>
+            <router-outlet></router-outlet>
+        </div>
+    </div>  
+</div>
+<div *ngIf="!adminShow">
+    <router-outlet></router-outlet>  
+</div>
+     
+

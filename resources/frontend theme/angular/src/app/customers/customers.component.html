@@ -1,0 +1,13 @@
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div *ngIf="patientSidebar" class="col-xl-3 col-md-4">
+                <app-sidemenu></app-sidemenu>
+            </div>
+           
+            <div [className]="patientSidebar ? 'col-xl-9 col-md-8' : 'col-xl-12 col-md-12'">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

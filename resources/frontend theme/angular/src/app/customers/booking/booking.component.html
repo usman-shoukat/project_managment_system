@@ -1,0 +1,76 @@
+<div class="row align-items-center mb-4">
+	<div class="col">
+		<h4 class="widget-title mb-0">My Bookings</h4>
+	</div>
+	<div class="col-auto">
+		<div class="sort-by">
+			<ng-select2 [data]="exampleData" width="100%">
+				<option>All</option>
+				<option>Pending</option>
+				<option>Inprogress</option>
+				<option>Complete Request</option>
+				<option>Rejected</option>
+				<option>Cancelled</option>
+				<option>Completed</option>
+            </ng-select2>
+		</div>
+	</div>
+</div>
+<div class="bookings" *ngFor="let service of services | slice:0:9">
+	<div class="booking-list">
+		<div class="booking-widget">
+			<a [routerLink]="'/pages/service-details'" class="booking-img">
+				<img src="{{service.img}}" alt="Service Image">
+			</a>
+			<div class="booking-det-info">
+				<h3>
+					<a [routerLink]="'/pages/service-details'">{{service.service_name}}</a>
+				</h3>
+				<ul class="booking-details">
+					<li>
+						<span>Booking Date</span> {{service.booking_date | date : 'dd MMM yyyy'}} 
+						<span *ngIf="service.status === 'Complete request sent to user'" class="badge badge-pill badge-prof bg-success">{{service.status}}</span>
+						<span *ngIf="service.status === 'Inprogress'" class="badge badge-pill badge-prof bg-primary">{{service.status}}</span>
+						<span *ngIf="service.status === 'Pending'" class="badge badge-pill badge-prof bg-warning">{{service.status}}</span>
+						<span *ngIf="service.status === 'Rejected by user'" class="badge badge-pill badge-prof bg-danger">{{service.status}}</span>
+					</li>
+					<li><span>Booking time</span> {{service.booking_time}}</li>
+					<li><span>Amount</span> {{service.amount}}</li>
+					<li><span>Location</span> {{service.location}}</li>
+					<li><span>Phone</span> {{service.phone}}</li>
+					<li>
+						<span>Provider</span>
+						<div class="avatar avatar-xs mr-1">
+							<img class="avatar-img rounded-circle" alt="User Image" src="{{service.provider_img}}">
+						</div>
+						{{service.provider_name}}
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="booking-action">
+			<a [routerLink]="'/messages'" *ngIf="service.option1" class="btn btn-sm bg-info-light"><i class="far fa-eye"></i> {{service.option1}}</a>
+			<a href="javascript:void(0)" *ngIf="service.option2" [className]="service.option2 === 'Reason' ? 'btn btn-sm bg-default-light': 'btn btn-sm bg-success-light'" class="btn btn-sm bg-success-light" data-toggle="modal" data-target="#myCancel"><i class="fas fa-check"></i> {{service.option2}}</a>
+			<a href="javascript:void(0)" *ngIf="service.option3" class="btn btn-sm bg-danger-light"><i [className]="service.option2 === 'Reason' ? 'fas fa-info-circle' : 'fas fa-times'" class=""></i> {{service.option3}}</a>
+		</div>
+	</div>
+</div>
+<div class="pagination" *ngIf="loadPagination">
+	<ul>
+		<li class="active">
+			<a href="javascript:void(0);">1</a>
+		</li>
+		<li>
+			<a href="javascript:void(0);">2</a>
+		</li>
+		<li>
+			<a href="javascript:void(0);">3</a>
+		</li>
+		<li>
+			<a href="javascript:void(0);">4</a>
+		</li>
+		<li class="arrow">
+			<a href="javascript:void(0);"><i class="fas fa-angle-right"></i></a>
+		</li>
+	</ul>
+</div>

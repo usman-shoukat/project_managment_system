@@ -1,0 +1,104 @@
+
+<!-- Page Content -->                
+<div class="row">                    
+    <div class="col-12">
+        <!-- Tab Menu -->
+        <nav class="user-tabs">
+            <ul class="nav nav-tabs nav-tabs-bottom nav-justified">
+                <li>
+                    <a class="nav-link active" href="#report" data-toggle="tab">Wallet Report <span class="badge badge-primary">550</span></a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#history" data-toggle="tab">Wallet History <span class="badge badge-primary">125</span></a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /Tab Menu -->
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <div role="tabpanel" id="report" class="tab-pane fade show active">
+				<div class="table-responsive">
+                    <table class="table table-hover table-center mb-0 datatable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Wallet Amt</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let report of walletReport">
+                                <td>{{report.id}}</td>
+                                <td>{{report.date | date : 'dd MMM yyyy'}}</td>
+                                <td>
+                                    <h2 class="table-avatar">
+                                        <a href="javascript:void(0);" class="avatar avatar-sm mr-2">
+                                            <img class="avatar-img rounded-circle" alt="" src="{{report.img}}">
+                                        </a>
+                                        <a href="javascript:void(0);">{{report.name}}</a>
+                                    </h2>
+                                </td>
+                                <td>{{report.mobile}}</td>
+                                <td>${{report.amount}}</td>
+                                <td>
+                                    <label class="badge badge-success">{{report.role}}</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>           
+			</div>
+            <div role="tabpanel" id="history" class="tab-pane fade">
+                <div class="table-responsive">
+                    <table class="table table-hover table-center mb-0 datatable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>Name</th>
+                                <th>Current Amt</th>
+                                <th>Credit Amt</th>
+                                <th>Debit Amt</th>
+                                <th>Fee Amt</th>
+                                <th>Available Amt</th>
+                                <th>Reason</th>
+                                <th>Pay Type</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let history of walletHistory">
+                                <td>{{history.id}}</td>
+                                <td>{{history.date | date : 'dd MMM yyyy'}}</td>
+                                <td>
+                                    <h2 class="table-avatar">
+                                        <a href="javascript:void(0);" class="avatar avatar-sm mr-2">
+                                            <img class="avatar-img rounded-circle" alt="" src="{{history.img}}">
+                                        </a>
+                                        <a href="javascript:void(0);">{{history.name}}</a>
+                                    </h2>
+                                </td>
+                                <td>${{history.current_amt}}</td>
+                                <td>-</td>
+                                <td>${{history.debit_amt}}</td>
+                                <td>-</td>
+                                <td>${{history.available_amt}}</td>
+                                <td>{{history.reason}}</td>
+                                <td><span class="btn btn-sm btn-danger">{{history.pay_type}}</span>
+                                </td>
+                                <td>
+                                    <label class="badge badge-primary">{{history.role}}</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>            
+			</div>
+        </div>
+        <!-- /Tab Content -->
+    </div>
+</div>	
+<!-- /Page Content -->

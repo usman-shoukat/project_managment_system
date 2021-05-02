@@ -1,0 +1,129 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<div class="breadcrumb-title">
+					<h2>Find a Professional</h2>
+				</div>
+			</div>
+			<div class="col-auto float-right ml-auto breadcrumb-menu">
+				<nav aria-label="breadcrumb" class="page-breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item">
+							<a [routerLink]="''">Home</a>
+						</li>
+						<li class="breadcrumb-item active" aria-current="page">Find a Professional</li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Breadcrumb -->
+<div class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-3 theiaStickySidebar">
+				<div class="card filter-card">
+					<div class="card-body">
+						<h4 class="card-title mb-4">Search Filter</h4>
+						<form id="search_form">
+							<div class="filter-widget">
+								<div class="filter-list">
+									<h4 class="filter-title">Keyword</h4>
+									<input type="text" class="form-control" placeholder="What are you looking for?">
+								</div>
+								<div class="filter-list">
+									<h4 class="filter-title">Sort By</h4>
+									<ng-select2 [data]="exampleData" width="100%">
+										<option>Sort By</option>
+										<option>Price Low to High</option>
+										<option>Price High to Low</option>
+										<option>Newest</option>
+									</ng-select2>
+								</div>
+								<div class="filter-list">
+									<h4 class="filter-title">Categories</h4>
+									<ng-select2 [data]="exampleData" width="100%">
+										<option>All Categories</option>
+										<option>Computer</option>
+										<option>Automobile</option>
+										<option>Car Wash</option>
+										<option>Cleaning</option>
+										<option>Electrical</option>
+										<option>Construction</option>
+									</ng-select2>
+								</div>
+								<div class="filter-list">
+									<h4 class="filter-title">Location</h4>
+									<input class="form-control" type="text" placeholder="Search Location">
+								</div>
+							</div>
+							<button class="btn btn-primary pl-5 pr-5 btn-block get_services" type="button">Search</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-9">
+				<div class="row align-items-center mb-4">
+					<div class="col-md-6 col">
+						<h4><span>118</span> Services</h4>
+					</div>
+					<div class="col-md-6 col-auto">
+						<div class="view-icons">
+							<a href="javascript:void(0);" class="grid-view active"><i class="fas fa-th-large"></i></a>
+						</div>
+					</div>
+				</div>
+				<div>
+					<div class="row">
+						<div class="col-lg-4 col-md-6" *ngFor="let service of services | slice:0:9" [hidden]="services.length === 0">
+							<div class="service-widget">
+								<div class="service-img">
+									<a [routerLink]="'/pages/service-details'">
+										<img class="img-fluid serv-img" alt="Service Image" src="{{service.service_img}}">
+									</a>
+									<div class="item-info">
+										<div class="service-user">
+											<a href="javascript:void(0);">
+												<img src="{{service.user_img}}" alt="user img">
+											</a>	
+											<span class="service-price">{{service.amount}}</span>
+										</div>
+										<div class="cate-list">
+											<a class="bg-yellow" [routerLink]="'/pages/service-details'">{{service.name}}</a>
+										</div>
+									</div>
+								</div>
+								<div class="service-content">
+									<h3 class="title">
+										<a [routerLink]="'/pages/service-details'">{{service.service_name}}</a>
+									</h3>
+									<div class="rating">	
+										<i class="fas fa-star filled"></i>
+										<i class="fas fa-star filled"></i>
+										<i class="fas fa-star filled"></i>
+										<i class="fas fa-star filled"></i>
+										<i class="fas fa-star"></i>		
+										<span class="d-inline-block average-rating">(4.3)</span>
+									</div>
+									<div class="user-info">
+										<div class="row">	
+											<span class="col-auto ser-contact"><i class="fas fa-phone mr-1"></i> 
+												<span>{{service.mobile}}</span>
+											</span>
+											<span class="col ser-location">
+												<span>{{service.country}}</span> <i class="fas fa-map-marker-alt ml-1"></i>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>				
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>		
+</div>

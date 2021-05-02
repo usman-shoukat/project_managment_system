@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover table-center mb-0 datatable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Date</th>
+                                <th>User</th>
+                                <th>Provider</th>
+                                <th>Service</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let allReport of allReports">
+                                <td>{{allReport.id}}</td>
+                                <td>{{allReport.date | date : 'dd MMM yyyy'}}</td>
+                                <td>
+                                    <span class="table-avatar">
+                                        <a href="javascript:void(0);" class="avatar avatar-sm mr-2">
+                                            <img class="avatar-img rounded-circle" alt="" src="{{allReport.user_img}}">
+                                        </a>
+                                        <a href="javascript:void(0);">{{allReport.user_name}}</a>
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="table-avatar">
+                                        <a href="javascript:void(0);" class="avatar avatar-sm mr-2">
+                                            <img class="avatar-img rounded-circle" alt="" src="{{allReport.provider_img}}">
+                                        </a>
+                                        <a href="javascript:void(0);">{{allReport.provider_name}}</a>
+                                    </span>
+                                </td>
+                                <td>{{allReport.service}}</td>
+                                <td>{{allReport.amount}}</td>
+                                <td>
+                                    <label *ngIf="allReport.status === 'Pending'" class="badge badge-dark">Pending</label>
+                                    <label *ngIf="allReport.status === 'Inprogress'" class="badge badge-info">Inprogress</label>
+                                    <label *ngIf="allReport.status === 'Complete Request'" class="badge badge-primary">Complete Request</label>
+                                    <label *ngIf="allReport.status === 'Rejected by User'" class="badge badge-warning">Rejected by User</label>
+                                    <label *ngIf="allReport.status === 'Cancelled by Provider'" class="badge badge-danger">Cancelled by Provider</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
