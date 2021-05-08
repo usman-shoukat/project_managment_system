@@ -13,6 +13,8 @@
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="{{asset('public/css/vendor.css')}}">
     <link rel="stylesheet"  href="{{asset('public/css/app.css')}}">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -85,27 +87,27 @@
                     <nav class="menu">
                         <ul class="sidebar-menu metismenu" id="sidebar-menu">
                             <li class="active">
-                                <a href="index-2.html">
+                                <a href="{{url('/admin')}}">
                                     <i class="fa fa-home"></i> Home
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{url('/order')}}">
                                     <i class="fa fa-area-chart"></i> Orders
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{url('/client')}}">
                                     <i class="fa fa-desktop"></i> Clients
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{url('/users')}}">
                                     <i class="fa fa-file-text-o"></i> Users
                                 </a>
                             </li>
                             <li>
-                                <a href="forms.html">
+                                <a href="{{url('/setting')}}">
                                     <i class="fa fa-pencil-square-o"></i> Setting
                                 </a>
                             </li>

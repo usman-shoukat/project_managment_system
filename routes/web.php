@@ -16,6 +16,10 @@ Route::get('/register/admin', 'Auth\RegisterController@showAdminRegisterForm');
 Route::post('/login/admin', 'Auth\LoginController@adminLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin');
 Route::get('/admin', 'AdminController@index');
+Route::get('/client', 'ClientController@client')->name('client');
+Route::get('/client/search', 'ClientController@clientsearch')->name('search');
+Route::post('/client/store', 'ClientController@clientstore')->name('client.store');
+Route::get('/client/{id}', 'ClientController@clientdel')->name('del.client');
 
 
 // ------------------------------writer route--------------------------
