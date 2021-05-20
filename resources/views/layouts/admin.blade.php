@@ -13,8 +13,9 @@
     <!-- Place favicon.ico in the root directory -->
     <link rel="stylesheet" href="{{asset('public/css/vendor.css')}}">
     <link rel="stylesheet"  href="{{asset('public/css/app.css')}}">
+    <link rel="stylesheet"  href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
@@ -55,7 +56,7 @@
                         <li class="profile dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 <div class="img" style="background-image: url('https://avatars3.githubusercontent.com/u/3959008?v=3&amp;s=40')"> </div>
-                                <span class="name"> John Doe </span>
+                                <span class="name"> {{auth()->user()->username}} </span>
                             </a>
                             <div class="dropdown-menu profile-dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <div class="dropdown-divider"></div>
@@ -82,7 +83,7 @@
                                 <span class="l l3"></span>
                                 <span class="l l4"></span>
                                 <span class="l l5"></span>
-                            </div>Redix Experts0</div>
+                            </div>Redix Experts</div>
                     </div>
                     <nav class="menu">
                         <ul class="sidebar-menu metismenu" id="sidebar-menu">
@@ -107,6 +108,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{url('/admins')}}">
+                                    <i class="fa fa-file-text-o"></i> Admins
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{url('/setting')}}">
                                     <i class="fa fa-pencil-square-o"></i> Setting
                                 </a>
@@ -123,6 +129,8 @@
 
 <script src="{{asset('public/js/vendor.js')}}"></script>
 <script src="{{asset('public/js/app.js')}} "></script>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js "></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
 </body>
 
 </html>
