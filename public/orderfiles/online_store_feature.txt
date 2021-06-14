@@ -1,0 +1,109 @@
+Technical information : 
+
+Framework :
+
+Laravel is a web application framework with expressive, 
+elegant syntax. We believe development must be an enjoyable 
+and creative experience to be truly fulfilling. Laravel attempts 
+to take the pain out of development by easing common tasks used in most web projects.
+
+packages : 
+
+        "axios": "^0.21",
+        "bootstrap": "^4.0.0",
+        "cross-env": "^7.0",
+        "jquery": "^3.2",
+        "laravel-mix": "^5.0.1",
+        "lodash": "^4.17.19",
+        "popper.js": "^1.12",
+        "resolve-url-loader": "^2.3.1",
+        "sass": "^1.20.1",
+        "sass-loader": "^8.0.0",
+        "vue": "^2.5.17",
+        "vue-template-compiler": "^2.6.10"
+
+        "laravel-echo": "^1.8.0",
+        "pusher-js": "^6.0.3"
+
+Library  :
+
+        ""vue": "^2.5.17""
+
+
+## Features :
+
+====== FRONT-END =======
+
+- Responsive Layout
+- Shopping Cart, Wishlist, Product Reviews
+- Coupons & Discounts
+- Product attributes: cost price, promotion price, stock, size...
+- Blog: category, tag, content, web page 
+- Module/Extension: Shipping, payment, discount, ...
+- Upload manager: banner, images,..
+- SEO support: customer URL
+- Newsletter management
+- Contact forms with the real-time notification (Laravel Pusher)
+- Related Products, Recommendations for you in our categories
+- A Product search form
+- Laravel Socialite implement(Facebook, Google & twitter) & Customer login
+- Product Share and follow from different social platform...
+- Payment integration(Paypal)
+- Order Tracking system
+- Multi-level comment system
+many more......
+
+======= ADMIN =======
+
+- Admin roles, permission
+- Product manager
+- Media manager using unisharp laravel file manager
+- Banner manager
+- Order management
+- Category management
+- Brand management
+- Shipping Management
+- Review Management
+- Blog, Category & Tag manager
+- User Management
+- Coupon Management
+- System config: email setting, info shop, maintain status,...
+- Line Chart & Pie chart ...
+- Generate order in pdf form...
+- Real time message & notification
+- Profile Settings
+Many more....
+
+
+======= USER DASHBOARD =======
+
+
+- Order management
+- Review Management
+- Comment Management
+- Profile Settings
+
+
+
+Demo Link :
+
+http://wordpress.pxdollar.com/
+
+wordpress name just a sub domain name so don't worry.
+
+Admin Demo Link :
+
+http://wordpress.pxdollar.com/login
+
+Admin login Access
+
+admin@gmail.com
+1111
+
+Price and Information : 
+
+if you buy this website same this features so final price is 25k.
+if you change frontend theme so this is possible but paid. 5 page => 10k 
+if you want add more features so this is possible but paid. each feature take 5k depend on feature.
+
+thanks for your time :=> founder of creative techco.

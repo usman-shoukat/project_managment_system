@@ -3,15 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Writer extends Model
+class Writer extends Authenticatable
 {
-  use Notifiable;
 
       protected $guard = 'writer';
 
       protected $fillable = [
-          'name', 'email', 'password',
+        'role', 'fullname', 'username','email', 'password', 'phone','ban',
       ];
 
       protected $hidden = [

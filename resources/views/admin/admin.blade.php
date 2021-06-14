@@ -43,7 +43,9 @@
                                                   <th>User Name</th>
                                                   <th>Email</th>
                                                   <th>Mobile Phone</th>
+                                                   @if(auth()->user()->is_super == 1)
                                                   <th>Action</th>
+                                                  @endif
                                               </tr>
                                           </thead>
                                           <tbody>
@@ -52,18 +54,20 @@
                                                   <td>{{$getadmins->username}}</td>
                                                   <td>{{$getadmins->email}}</td>
                                                   <td>{{$getadmins->phone}}</td>
+                                                  @if(auth()->user()->is_super == 1)
        <td><a href="{{route('del.admin',[$getadmins->id])}}" style="color: white;"
          class="btn btn-primary btn-sm"><i class="fa fa-trash"></i></a>
          @if($getadmins->ban == 1)
            <a href="{{route('unban.admin',[$getadmins->id])}}" style="color: white;"
              class="btn btn-primary btn-sm"><i class="fa fa-rss"></i></a>
          @else
+
          <a href="{{route('ban.admin',[$getadmins->id])}}" style="color: white;"
            class="btn btn-primary btn-sm"><i class="fa fa-ban"></i></a>
            @endif
            <a href="{{route('edit.admin.page',[$getadmins->id])}}" style="color: white;"
              class="btn btn-primary btn-sm"><i  class="fa fa-edit"></i></a>
-           </td>
+           </td>@endif
 
                                     @endforeach
 

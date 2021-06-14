@@ -28,8 +28,8 @@
                                        <i class="fa fa-rocket"></i>
                                    </div>
                                    <div class="stat">
-                                       <div class="value"> 5407 </div>
-                                       <div class="name"> Done Orders </div>
+                                       <div class="value"> {{$Doneorder}} </div>
+                                       <div class="name"> Done </div>
                                    </div>
                                    <div class="progress stat-progress">
                                        <div class="progress-bar" style="width: 100%;"></div>
@@ -40,8 +40,8 @@
                                        <i class="fa  fa-bell-o"></i>
                                    </div>
                                    <div class="stat">
-                                       <div class="value"> 78464 </div>
-                                       <div class="name"> ACTIVE ORDERS </div>
+                                       <div class="value"> {{$Activeorder}} </div>
+                                       <div class="name"> ACTIVE  </div>
                                    </div>
                                    <div class="progress stat-progress">
                                        <div class="progress-bar" style="width: 100%;"></div>
@@ -52,8 +52,8 @@
                                        <i class="fa fa-line-chart"></i>
                                    </div>
                                    <div class="stat">
-                                       <div class="value"> 80 </div>
-                                       <div class="name"> CANCELLED ORDERS</div>
+                                       <div class="value"> {{$Cancelledorder}} </div>
+                                       <div class="name"> CANCELLED </div>
                                    </div>
                                    <div class="progress stat-progress">
                                        <div class="progress-bar" style="width: 100%;"></div>
@@ -65,8 +65,8 @@
                                        <i class="fa fa-users"></i>
                                    </div>
                                    <div class="stat">
-                                       <div class="value"> 359 </div>
-                                       <div class="name">REVISION ORDERS</div>
+                                       <div class="value"> {{$Revisionorder}} </div>
+                                       <div class="name">REVISION </div>
                                    </div>
                                    <div class="progress stat-progress">
                                        <div class="progress-bar" style="width: 100%;"></div>
@@ -77,8 +77,8 @@
                                        <i class="fa fa-users"></i>
                                    </div>
                                    <div class="stat">
-                                       <div class="value"> 359 </div>
-                                       <div class="name">ON HOLD ORDERS</div>
+                                       <div class="value"> {{$OnHoldorder}} </div>
+                                       <div class="name">ON HOLD </div>
                                    </div>
                                    <div class="progress stat-progress">
                                        <div class="progress-bar" style="width: 100%;"></div>
@@ -89,7 +89,7 @@
                                        <i class="fa fa-users"></i>
                                    </div>
                                    <div class="stat">
-                                       <div class="value"> 359 </div>
+                                       <div class="value"> {{$overallorder}} </div>
                                        <div class="name">OVERALL</div>
                                    </div>
                                    <div class="progress stat-progress">
@@ -104,6 +104,113 @@
 
            </div>
        </section>
+       <section class="section">
+           <div class="row">
+               <div class="col-md-12">
+                   <div class="card">
+                       <div class="card-block">
+                         <div class="card-title-block">
+                          <!--  <select class="btn btn-primary btn-sm">
+                             <option>Filter By</option>
+                             <option>Active</option>
+                             <option>On Hold</option>
+                             <option>Done</option>
+                             <option>Revision</option>
+                             <option>Cancelled</option>
+                             <option>All Order</option>
+                           </select> -->
+                           <a class="btn btn-primary btn-sm" style="float:right;" href="{{route('create.Order')}}" >Create Order</a>
+                         </div>
+                         <div class="card-title-block">
+                           <h3 class="title"> All Order </h3>
+                               <form style="float: right;" role="search">
 
+                           <input type="text" name="search" id="search" style="float:right;" placeholder="Search Order Data" ></form>
+                         </div>
+                           <section class="example">
+                               <div class="table-responsive">
+                                   <table class="table table-striped table-bordered table-hover">
+                                       <thead>
+                                           <tr>
+                                               <th>Order Code</th>
+                                               <th>Order Title</th>
+                                               <th>Client Name</th>
+                                               
+                                               <th>Status</th>
+                                               <th>Papers</th>
+                                               <th>Amount</th>
+                                               <th>Action</th>
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                        @foreach($getorder as $getorders)
+                                           <tr>
+                                              
+                                                <td>{{$getorders->ocode}}</td>
+                                               <td><a  title="{{$getorders->progress}} Complete" href="{{route('view.order',[$getorders->ocode])}}">{{$getorders->otitle}}</a></td>
+                                               <td>{{$getorders->client}}</td>
+                                              
+                                              
+              @if($getorders->status == "Active")
+              <td><span class="badge badge-info">{{$getorders->status }}</span></td>
+              @endif
+              @if($getorders->status == "On Hold")
+              <td><span class="badge badge-warning">{{$getorders->status }}</span></td>
+              @endif
+              @if($getorders->status == "Done")
+              <td><span class="badge badge-success">{{$getorders->status }}</span></td>
+              @endif
+              @if($getorders->status == "Revision")
+              <td><span class="badge badge-secondary">{{$getorders->status }}</span></td>
+              @endif
+              @if($getorders->status == "Cancelled")
+              <td><span class="badge badge-danger">{{$getorders->status }}</span></td>
+              @endif
+                                               
+                                               <td>{{$getorders->Numberofpages}}</td>
+                                               <td>{{$getorders->tamount}}</td>
+                                               <td> <a class="btn btn-primary btn-sm" href="{{route('del.order',[$getorders->id])}}" ><i class="fa fa-trash"></i></a></td>
+                                           </tr>
+                                           @endforeach
+                                      
+                                       </tbody>
+                                   </table>
+                         {{$getorder->links()}}
+
+                               </div>
+                           </section>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
    </article>
+   <script>
+$(document).ready(function(){
+
+ fetch_customer_data();
+
+ function fetch_customer_data(query = '')
+ {
+  $.ajax({
+   url:"{{ route('ordersearch') }}",
+   method:'GET',
+   data:{query:query},
+   dataType:'json',
+   success:function(data)
+   {
+    $('tbody').html(data.table_data);
+    $('#total_records').text(data.total_data);
+   }
+  })
+ }
+
+ $(document).on('keyup', '#search', function(){
+  var query = $(this).val();
+  fetch_customer_data(query);
+ });
+});
+$('#popoverData').popover();
+$('#popoverOption').popover({ trigger: "hover" });
+</script>
    @endsection

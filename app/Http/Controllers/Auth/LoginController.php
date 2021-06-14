@@ -6,6 +6,10 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Auth;
+use App\Admin;
+use App\Writer;
+use App\Themesetting;
+
 
 class LoginController extends Controller
 {
@@ -41,9 +45,12 @@ class LoginController extends Controller
      $this->middleware('guest:writer')->except('logout');
       }
 
-      public function showAdminLoginForm()
+      
+    public function showAdminLoginForm()
    {
-       return view('auth.login', ['url' => 'admin']);
+        $logo = Themesetting::orderBy('created_at','desc')->first();
+
+       return view('auth.login', ['url' => 'admin'])->with('logo' , $logo);
    }
 
    public function adminLogin(Request $request)
@@ -52,30 +59,57 @@ class LoginController extends Controller
            'email'   => 'required|email',
            'password' => 'required'
        ]);
+      
 
        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password'
-       => $request->password])) {
+       => $request->password , 'ban' => 0])) {
+          toastr()->success('successfully Login');
 
            return redirect()->intended('/admin');
        }
+                       toastr()->error('Ban & Something Wrong!');
+
+       return back()->withInput($request->only('email', 'remember'));
+   }
+    public function userLogin(Request $request)
+   {
+       $this->validate($request, [
+           'email'   => 'required|email',
+           'password' => 'required'
+       ]);
+      
+
+       if (Auth::guard('web')->attempt(['email' => $request->email, 'password'
+       => $request->password , 'ban' => 0])) {
+          toastr()->success('successfully Login');
+
+           return redirect()->intended('/home');
+       }
+                       toastr()->error('Ban & Something Wrong!');
+
        return back()->withInput($request->only('email', 'remember'));
    }
    public function showWriterLoginForm()
     {
-        return view('auth.login', ['url' => 'writer']);
+            $logo = Themesetting::orderBy('created_at','desc')->first();
+
+        return view('auth.writerlogin', ['url' => 'writer'])->with('logo' , $logo);
     }
 
     public function writerLogin(Request $request)
     {
         $this->validate($request, [
-            'email'   => 'required|email',
-            'password' => 'required|min:6'
+            'email'   => 'required',
+            'password' => 'required'
         ]);
 
-        if (Auth::guard('writer')->attempt(['email' => $request->email, 'password' => $request->password], $request->get('remember'))) {
+        if (Auth::guard('writer')->attempt(['email' => $request->email, 'password' => $request->password, 'ban' => 0])) {
+          toastr()->success('successfully Login');
 
             return redirect()->intended('/writer');
         }
+                       toastr()->error('Ban & Something Wrong!');
+
         return back()->withInput($request->only('email', 'remember'));
     }
 }

@@ -7,6 +7,8 @@ use App\Providers\RouteServiceProvider;
 use App\User;
 use App\Admin;
 use App\Writer;
+use App\Themesetting;
+
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -63,12 +65,15 @@ use Illuminate\Http\Request;
 
     public function showAdminRegisterForm()
    {
-       return view('auth.register', ['url' => 'admin']);
+            $logo = Themesetting::orderBy('created_at','desc')->first();
+       return view('auth.register', ['url' => 'admin'])->with('logo' , $logo);
    }
 
    public function showWriterRegisterForm()
    {
-       return view('auth.register', ['url' => 'writer']);
+            $logo = Themesetting::orderBy('created_at','desc')->first();
+
+       return view('auth.register', ['url' => 'writer'])->with('logo' , $logo);
    }
 
     /**
@@ -84,6 +89,8 @@ use Illuminate\Http\Request;
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+              return redirect()->intended('login');
+
     }
     protected function createAdmin(Request $request)
   {
@@ -92,6 +99,8 @@ use Illuminate\Http\Request;
           'name' => $request['name'],
           'email' => $request['email'],
           'password' => Hash::make($request['password']),
+        'is_super' => 1,
+
       ]);
       return redirect()->intended('login/admin');
   }

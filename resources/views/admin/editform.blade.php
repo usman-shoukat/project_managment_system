@@ -32,9 +32,9 @@
                                    @csrf
                                                <div class="form-group has-success">
                                                    <label class="control-label">Role</label>
-                                                   <select type="text" name="role" value="{{$selectuser->role}}" class="form-control underlined">
-                                                     <option value="writer">Writer</option>
-                                                     <option value="client">Client</option>
+                                                   <select type="text" name="role"class="form-control underlined">
+                                                     <option {{ ($selectuser->role) == 'writer' ? 'selected' : '' }}  value="writer">Writer</option>
+                                                     <option {{ ($selectuser->role) == 'client' ? 'selected' : '' }} value="client">Client</option>
                                                    </select>
                                                </div>
                                                <div class="form-group has-success">

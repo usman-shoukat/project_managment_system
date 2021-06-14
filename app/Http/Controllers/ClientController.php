@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Client;
+use App\Themesetting;
 
 class ClientController extends Controller
 {
@@ -15,8 +16,10 @@ class ClientController extends Controller
 
     public function client()
     {
+              $logo = Themesetting::orderBy('created_at','desc')->first();
+
       $get_client = Client::paginate(50);
-        return view('admin.clients')->with('get_client',$get_client);
+        return view('admin.clients')->with('get_client',$get_client)->with('logo' , $logo);
     }
 
     function clientsearch(Request $request)
@@ -73,6 +76,11 @@ class ClientController extends Controller
 
     public function clientstore(Request $request)
     {
+      $client = Client::where('email',$request['email'])->first();
+      if ($client) {
+        toastr()->error('Email Already have!');
+      return Redirect()->back()->with('success', 'The Message');
+      }
       $store_client = Client::create([
           'name' => $request['name'],
           'email' => $request['email'],
@@ -92,12 +100,14 @@ class ClientController extends Controller
           'facebook' => $request['facebook'],
           'twitter' => $request['twitter'],
       ]);
+      toastr()->success('Data has been saved successfully!');
       return Redirect()->back()->with('success', 'The Message');
     }
 
     public function clientdel($id)
     {
       $del_client = Client::where('id', $id)->delete();
+      toastr()->success('Data has been Delete successfully!');
 
       return Redirect()->back()->with('success', 'The Message');
     }
